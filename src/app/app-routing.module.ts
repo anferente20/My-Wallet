@@ -6,6 +6,7 @@ import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { LoginComponent } from './login/login.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'ingresos', component: IngresosComponent },
   { path: 'egresos', component: EgresosComponent },
   { path: 'estadisticas', component: EstadisticasComponent },
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'perfil', component: PerfilComponent}
 ];
 
 @NgModule({
