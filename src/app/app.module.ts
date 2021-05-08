@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CuentasComponent } from './cuentas/cuentas.component';
+import { AgregarCuentaComponent } from './agregar-cuenta/agregar-cuenta.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
+import { EgresosComponent } from './egresos/egresos.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    CuentasComponent,
+    AgregarCuentaComponent,
+    IngresosComponent,
+    EgresosComponent,
+    EstadisticasComponent
   ],
   imports: [
     BrowserModule,
