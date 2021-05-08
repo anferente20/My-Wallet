@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from "@angular/common";
+import { Router,NavigationEnd  } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,12 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+   isCollapse = false;
 
-  ngOnInit(): void {
+  constructor(location: Location, router: Router) {
+    router.events.subscribe(val => {
+       if(location.path()=='/login'){
+         this.isCollapse = true;
+       }else{
+         this.isCollapse = false;
+       }
+      
+    });
   }
 
-  isCollapse = true;   // guardamos el valor
+
+
+  ngOnInit() {}
+
   toggleState() { // manejador del evento
     let foo = this.isCollapse;
     this.isCollapse = foo === false ? true : false; 

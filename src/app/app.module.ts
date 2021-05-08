@@ -9,6 +9,7 @@ import { AgregarCuentaComponent } from './agregar-cuenta/agregar-cuenta.componen
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
     AgregarCuentaComponent,
     IngresosComponent,
     EgresosComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -5,14 +5,16 @@ import { AgregarCuentaComponent } from './agregar-cuenta/agregar-cuenta.componen
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { EgresosComponent } from './egresos/egresos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/cuentas', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'cuentas', component: CuentasComponent },
   { path: 'agregar-cuenta', component: AgregarCuentaComponent },
   { path: 'ingresos', component: IngresosComponent },
   { path: 'egresos', component: EgresosComponent },
-  { path: 'estadisticas', component: EstadisticasComponent }
+  { path: 'estadisticas', component: EstadisticasComponent },
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({
