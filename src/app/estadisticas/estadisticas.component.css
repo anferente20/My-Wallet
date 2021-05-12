@@ -1,5 +1,15 @@
-#divChart{
-    display: block;
-    width: 400px;
-    height: 400px;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+#divChart {
+     width: 100%;
+     display: block;
+     background-color: #333941;
+     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+     position: relative;
+     min-height: 400px;
+     max-height: 550px;
+     border-radius: 5px;
+     margin-bottom: 1rem;
+     border: none;
+     overflow: hidden;
+     color: #0a0a0a;
 }
