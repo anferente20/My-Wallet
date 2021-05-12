@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Persona } from '../persona'; 
 
 @Component({
   selector: 'app-login',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+persona: Persona={correo:'pepito@gmail.com', nombres:'Pepito', apellidos:'Perez', telefono:12345, id:1};
   constructor(private router: Router) {}
 
   ngOnInit(): void {
