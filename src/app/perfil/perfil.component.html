@@ -1,47 +1,101 @@
-
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <table>
-                <tbody>
-                  <tr>
-                    <td>Correo</td>
-                    <td>
-                        <input type="text" name="correo"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Nombres</td>
-                    <td>
-                        <input type="text" name="nombres"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Apellidos</td>
-                    <td>
-                        <input type="text" name="apellidos"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Teléfono</td>
-                    <td>
-                        <input type="text" name="telefono"/>
-                    </td>
-                  </tr>
-                  <tr><br></tr>
-                  <tr><br></tr>
-                  <tr><br></tr>
-                  <tr><br></tr>
-                  <tr>
-                    <td><a href="#" class="btn btn-success">Actulizar Datos</a></td>
-                    <td><a href="#" class="btn btn-success">Cerrar Sesión</a></td>  
-                  </tr>
-                </tbody>
-              </table>
-            
-          </div>
-            
+  <div class="row">
+    <div class="col">
+      <table>
+        <tbody>
+          <tr>
+            <td>Correo</td>
+            <td>
+              <input readonly="readonly" value="correo@correo.com" type="text" name="correo" />
+            </td>
+          </tr>
+          <tr>
+            <td>Nombres</td>
+            <td>
+              <input readonly="readonly" value="natalia" type="text" name="nombres" />
+            </td>
+          </tr>
+          <tr>
+            <td>Apellidos</td>
+            <td>
+              <input readonly="readonly" value="angarita" type="text" name="apellidos" />
+            </td>
+          </tr>
+          <tr>
+            <td>Teléfono</td>
+            <td>
+              <input readonly="readonly" value="4303232" type="text" name="telefono" />
+            </td>
+          </tr>
+          <tr><br></tr>
+          <tr><br></tr>
+          <tr><br></tr>
+          <tr><br></tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal"
+                data-bs-target="#actualizarDatos">Actualizar Datos</button>
+            </td>
+            <td>
+              <a href="#" class="btn btn-success">Cerrar Sesión</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 </div>
 
-
+<!-- Modal Actualizar Datos-->
+<div class="modal fade" id="actualizarDatos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualizar Datos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Correo (Usuario)</td>
+              <td>
+                <input readonly="readonly" value="correo@correo.com" type="text" name="correo" />
+              </td>
+            </tr>
+            <tr>
+              <td>Nombres</td>
+              <td>
+                <input type="text" name="nombres" />
+              </td>
+            </tr>
+            <tr>
+              <td>Apellidos</td>
+              <td>
+                <input type="text" name="apellidos" />
+              </td>
+            </tr>
+            <tr>
+              <td>Teléfono</td>
+              <td>
+                <input type="text" name="telefono" />
+              </td>
+            </tr>
+            <tr>
+              <td>Contraseña</td>
+              <td>
+                <input type="text" name="contraseña" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="actualizar()" data-bs-dismiss="modal"
+          aria-label="Close">Actualizar Datos</button>
+        <button type="button" class="btn btn-outline-success" (click)="cancelar()" data-bs-dismiss="modal"
+          aria-label="Close">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

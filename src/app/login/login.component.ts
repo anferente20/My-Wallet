@@ -16,4 +16,10 @@ export class LoginComponent implements OnInit {
   acceder() {
     this.router.navigate(['/cuentas']);
   }
+  registrarse() {
+    this.router.navigate(['/login']);
+  }
+  cancelar() {
+    this.router.navigate(['/login']);
+  }
 }

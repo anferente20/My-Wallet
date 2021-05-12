@@ -13,7 +13,7 @@
                     <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal" data-bs-target="#iniciarSesion">Iniciar sesión</button>
                 </div>
                 <div class="col-4">
-                    <button type="button" class="btn btn-outline-success btn-lg">Registrarse</button>
+                    <button type="button" class="btn btn-outline-success btn-lg" data-bs-toggle="modal" data-bs-target="#registrarse">Registrarse</button>
                 </div>
             </div>
         </div>
@@ -39,3 +39,62 @@
   </div>
 </div>
 
+<!-- Modal Resgitrarse-->
+<div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registrarse</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <td>Correo (Usuario)</td>
+              <td>
+                <input type="text" name="correo" id="Correo" />
+              </td>
+            </tr>
+            <tr>
+              <td>Contraseña</td>
+              <td>
+                <input type="text" name="contrasena" id="Contrasena"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Repetir Contraseña</td>
+              <td>
+                <input type="text" name="contrasenaConfirmada" id="ContrasenaConfirmada"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Nombres</td>
+              <td>
+                <input type="text" name="nombres" id="Nombres"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Apellidos</td>
+              <td>
+                <input type="text" name="apellidos" id="Apellidos"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Teléfono</td>
+              <td>
+                <input type="text" name="telefono" id="Telefono"/>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="registrarse()" data-bs-dismiss="modal"
+          aria-label="Close">Enviar</button>
+        <button type="button" class="btn btn-outline-success" (click)="cancelar()" data-bs-dismiss="modal"
+          aria-label="Close">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
