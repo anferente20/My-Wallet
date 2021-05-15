@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Persona } from './persona';
-import { Personas } from './lista-personas';
+import { Persona } from '../Interfaces/persona';
+import { Personas } from '../Listas/lista-personas';
 import { Observable, of } from 'rxjs';
 
 

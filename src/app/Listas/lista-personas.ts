@@ -1,4 +1,4 @@
-import { Persona } from './persona';
+import { Persona } from '../Interfaces/persona';
 
 export const Personas: Persona[] = [
 

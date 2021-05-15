@@ -1,35 +1,16 @@
   <div class="container-fluid">
     <div class="row">
-        <div class="col">
+        <div class="col" *ngFor="let cuenta of cuentas">
           <div class="card border-success">
               <div class="card-body">
-                <h5 class="card-title">Cuenta de ahorros</h5>
-                <p class="card-text">Esta es mi cuenta de ahorros del banco X.</p>
-                <h3> 3'000.000 COP </h3>
-                <a href="#" class="btn btn-success">Ver transacciones</a>
+                <h5 class="card-title">{{cuenta.nombre}}</h5>
+                <p class="card-text">{{cuenta.descripcion}}</p>
+                <h3> {{cuenta.saldo}} COP </h3>
+                <a routerLink="/transacciones/{{cuenta.idCuenta}}" class="btn btn-success">Ver transacciones</a>
               </div>
             </div>
         </div>
-        <div class="col">
-          <div class="card border-success">
-              <div class="card-body">
-                <h5 class="card-title">Dinero efectivo</h5>
-                <p class="card-text">Acá registro en que gasto mi platica.</p>
-                <h3> 3'000.000 COP </h3>
-                <a href="#" class="btn btn-success">Ver transacciones</a>
-              </div>
-            </div>
-        </div>
-        <div class="col">
-          <div class="card border-success">
-              <div class="card-body">
-                <h5 class="card-title">Ahorro vaje a Italia</h5>
-                <p class="card-text">Acá guardo mi plata para ir a comer pizza.</p>
-                <h3> 3'000.000 COP </h3>
-                <a href="#" class="btn btn-success">Ver transacciones</a>
-              </div>
-            </div>
-        </div>
+        
         <div class="col">
           <div >
               <div class="card-body">

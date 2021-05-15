@@ -11,7 +11,7 @@ import { EgresosComponent } from './egresos/egresos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { LoginComponent } from './login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import { TransaccionesComponent } from './transacciones/transacciones.component';
+import { CuentasModule } from './cuentas/cuentas.module';
 
 @NgModule({
   declarations: [
@@ -24,10 +24,10 @@ import { TransaccionesComponent } from './transacciones/transacciones.component'
     EstadisticasComponent,
     LoginComponent,
     PerfilComponent,
-    TransaccionesComponent
   ],
   imports: [
     BrowserModule,
+    CuentasModule,
     AppRoutingModule
   ],
   providers: [],
