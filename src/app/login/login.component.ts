@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from '../persona';
+import { PersonaService } from '../persona.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -18,26 +20,20 @@ export class LoginComponent implements OnInit {
     id: 0
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private personaService: PersonaService, private app: AppComponent) { }
 
   ngOnInit(): void {
-    this.persona = {
-      correo: 'pepito@gmail.com',
-      nombres: 'Pepito',
-      contrasena: 'asdf1234',
-      apellidos: 'Perez',
-      telefono: 12345,
-      id: 1
-    };
   }
 
   acceder() {
     var correo = ((document.getElementById("Correo") as HTMLInputElement).value);
     var contrasena = ((document.getElementById("Contrasena") as HTMLInputElement).value);
-    if (correo == this.persona.correo && contrasena == this.persona.contrasena) {
+
+    if (this.personaService.existPersona(correo,contrasena)) {
+      this.persona = this.personaService.getPersona(correo, contrasena);
+      this.personaService.setID(this.persona.id);
       this.router.navigate(['/cuentas']);
-      //setear el ID del usuario de forma global       
-      
+      this.app.getID();
     } else {
       this.router.navigate(['/login']);
     }

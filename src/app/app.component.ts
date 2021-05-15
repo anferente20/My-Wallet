@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PersonaService } from './persona.service';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'My Wallet';
+    id:number = 0;
+    constructor(private personaService: PersonaService){}
+    title = 'My Wallet';
+
+    getID(): void {
+        this.personaService.getID()
+          .subscribe(id => this.id = id);
+    }
 }

@@ -11,6 +11,7 @@ import { EgresosComponent } from './egresos/egresos.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { LoginComponent } from './login/login.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { TransaccionesComponent } from './transacciones/transacciones.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     EgresosComponent,
     EstadisticasComponent,
     LoginComponent,
-    PerfilComponent
+    PerfilComponent,
+    TransaccionesComponent
   ],
   imports: [
     BrowserModule,

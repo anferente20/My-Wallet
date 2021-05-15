@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Persona } from '../persona'; 
+import { PersonaService } from '../persona.service';
+
 
 @Component({
   selector: 'app-perfil',
@@ -18,17 +20,11 @@ export class PerfilComponent implements OnInit {
     id:0
   };
 
-  constructor(private router: Router) { }
+  constructor(private personaService: PersonaService, private router: Router) { }
 
   ngOnInit(): void {
-    this.persona = {
-      correo:'pepito@gmail.com', 
-      nombres:'Pepito', 
-      contrasena: 'asdf1234',
-      apellidos:'Perez', 
-      telefono:12345, 
-      id:1
-    };
+    let id = Number(((document.getElementById("user") as HTMLInputElement).value));
+    this.persona = this.personaService.getPersonaByID(id);
   }
   
   actualizar() {
