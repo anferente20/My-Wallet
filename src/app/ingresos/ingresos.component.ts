@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransaccionesService } from '../Servicios/transacciones.service';
 import {
   Chart,
   ArcElement,
@@ -57,15 +58,17 @@ Chart.register(
 })
 export class IngresosComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private service: TransaccionesService
+    ) { }
 
-  ngOnInit(): void {
-      const meses = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio'];
+  ngOnInit(): void {   
+    const labels = this.service.getIngresosFechas();
     const data = {
-      labels: meses,
+      labels: labels,
       datasets: [{
         label: 'Ingresos',
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: this.service.getIngresosValores(),
         fill: false,
         borderColor: 'rgb(34, 190, 3)',
         tension: 0.1
