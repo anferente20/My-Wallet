@@ -65,18 +65,19 @@ export class EstadisticasComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    const labelsI = this.service.getAllFechas();
+    const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
+    const labelsI = this.service.getAllFechas(idCliente);
     const data = {
       labels: labelsI,
       datasets: [{
         label: 'Ingresos',
-        data: this.service.getIngresosAllValores(),
+        data: this.service.getIngresosAllValores(idCliente),
         fill: false,
         borderColor: 'rgb(34, 190, 3)',
         tension: 0.1
       },{
         label: 'Egresos',
-        data: this.service.getEgresosAllValores(),
+        data: this.service.getEgresosAllValores(idCliente),
         fill: false,
         borderColor: 'rgb(234, 53, 5)',
         tension: 0.1
@@ -103,7 +104,7 @@ export class EstadisticasComponent implements OnInit {
       ],
       datasets: [{
         label: 'Ingresos vs Egresos',
-        data: [this.service.getTotalIngresos(), this.service.getTotalEgresos()],
+        data: [this.service.getTotalIngresos(idCliente), this.service.getTotalEgresos(idCliente)],
         fill: false,
         borderColor: [
           'rgb(34, 190, 3)',

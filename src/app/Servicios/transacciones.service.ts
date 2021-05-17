@@ -10,20 +10,20 @@ export class TransaccionesService {
 
   constructor() { }
 
-  getTransacciones(idCuenta:Number):Transaccion[]{
+  getTransacciones(idCuenta:Number, idCliente:Number):Transaccion[]{
       let cuentasFiltradas:Transaccion[] = [];
       for (let transaccion of Transacciones){
-        if(transaccion.idCuenta == idCuenta){
+        if(transaccion.idCuenta == idCuenta && transaccion.idCliente == idCliente){
             cuentasFiltradas.push(transaccion);
         }
       } 
       return cuentasFiltradas;
   }
 
-  getTotal(idCuenta:Number):number{
+  getTotal(idCuenta:Number, idCliente:Number):number{
       let total: number = 0;
-      for(let transaccion of Transacciones){
-          if(transaccion.idCuenta == idCuenta){
+      for(let transaccion of Transacciones ){
+          if(transaccion.idCuenta == idCuenta && transaccion.idCliente == idCliente){
             if(transaccion.tipo == true){
               total = total+transaccion.monto;
               }else{
@@ -34,99 +34,111 @@ export class TransaccionesService {
       return total;
   }
 
-  getAllTransacciones(): Transaccion[]{
-    return Transacciones;
+  getAllTransacciones(idCliente: Number): Transaccion[]{
+    let cuentasFiltradas:Transaccion[] = [];
+      for (let transaccion of Transacciones){
+         if(transaccion.idCliente == idCliente){
+            cuentasFiltradas.push(transaccion);
+        }
+      } 
+      return cuentasFiltradas;
   }
 
-  getAllFechas(): string[]{
+  getAllFechas(idCliente: Number): string[]{
     let fechas: string[] = [];
     for(let transaccion of Transacciones){
-      fechas.push(transaccion.fecha);
-    }
-    return fechas;
-  }
-
-  getIngresosFechas(): string[]{
-    let fechas: string[] = [];
-    for(let transaccion of Transacciones){
-      if(transaccion.tipo == true){
+      if(transaccion.idCliente == idCliente){
         fechas.push(transaccion.fecha);
       }
     }
     return fechas;
   }
 
-  getIngresosValores(): number[]{
+  getIngresosFechas(idCliente:Number): string[]{
+    let fechas: string[] = [];
+    for(let transaccion of Transacciones){
+      if(transaccion.tipo == true && transaccion.idCliente == idCliente){
+        fechas.push(transaccion.fecha);
+      }
+    }
+    return fechas;
+  }
+
+  getIngresosValores(idCliente:Number): number[]{
     let valores: number[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == true){
+      if(transaccion.tipo == true && transaccion.idCliente == idCliente){
         valores.push(transaccion.monto);
       }
     }
     return valores;
   }
 
-  getIngresosAllValores(): number[]{
+  getIngresosAllValores(idCliente:Number): number[]{
     let valores: number[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == true){
-        valores.push(transaccion.monto);
-      }else{
-        valores.push(0);
+      if(transaccion.idCliente == idCliente){
+        if(transaccion.tipo == true ){
+          valores.push(transaccion.monto);
+        }else{
+          valores.push(0);
+        }
       }
     }
     return valores;
   }
 
 
-  getEgresosAllValores(): number[]{
+  getEgresosAllValores(idCliente:Number): number[]{
     let valores: number[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == false){
-        valores.push(transaccion.monto);
-      }else{
-        valores.push(0);
+      if(transaccion.idCliente == idCliente){
+        if(transaccion.tipo == false ){
+          valores.push(transaccion.monto);
+        }else{
+          valores.push(0);
+        }
       }
     }
     return valores;
   }
 
-  getTotalIngresos():number{
+  getTotalIngresos(idCliente:Number):number{
     let totalI: number = 0;
     let valores: number[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == true){
+      if(transaccion.tipo == true && transaccion.idCliente == idCliente){
         totalI = totalI + transaccion.monto;
       }
     }
     return totalI;
   }
 
-  getTotalEgresos():number{
+  getTotalEgresos(idCliente:Number):number{
     let totalE: number = 0;
     let valores: number[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == false){
+      if(transaccion.tipo == false && transaccion.idCliente == idCliente){
         totalE = totalE + transaccion.monto;
       }
     }
     return totalE;
   }
 
-  getEgresosFechas(): string[]{
+  getEgresosFechas(idCliente:Number): string[]{
     let fechas: string[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == false){
+      if(transaccion.tipo == false && transaccion.idCliente == idCliente){
         fechas.push(transaccion.fecha);
       }
     }
     return fechas;
   }
 
-  getEgresosValores(): number[]{
+  getEgresosValores(idCliente:Number): number[]{
     let valores: number[] = [];
     for(let transaccion of Transacciones){
-      if(transaccion.tipo == false){
+      if(transaccion.tipo == false && transaccion.idCliente == idCliente){
         valores.push(transaccion.monto);
       }
     }

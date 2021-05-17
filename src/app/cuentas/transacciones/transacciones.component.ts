@@ -21,8 +21,9 @@ export class TransaccionesComponent implements OnInit {
 
   ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
-      this.transacciones = this.service.getTransacciones(id);
-      this.total = this.service.getTotal(id);
+      const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
+      this.transacciones = this.service.getTransacciones(id,idCliente);
+      this.total = this.service.getTotal(id,idCliente);
   }
 
   getTipo(estado:boolean):string{

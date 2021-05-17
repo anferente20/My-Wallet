@@ -64,12 +64,13 @@ export class EgresosComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-        const labels = this.service.getEgresosFechas();
+        const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
+        const labels = this.service.getEgresosFechas(idCliente);
         const data = {
           labels: labels,
           datasets: [{
             label: 'Egresos',
-            data: this.service.getEgresosValores(),
+            data: this.service.getEgresosValores(idCliente),
             fill: false,
             borderColor: 'rgb(234, 53, 5)',
             tension: 0.1

@@ -62,13 +62,14 @@ export class IngresosComponent implements OnInit {
     private service: TransaccionesService
     ) { }
 
-  ngOnInit(): void {   
-    const labels = this.service.getIngresosFechas();
+  ngOnInit(): void { 
+    const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));  
+    const labels = this.service.getIngresosFechas(idCliente);
     const data = {
       labels: labels,
       datasets: [{
         label: 'Ingresos',
-        data: this.service.getIngresosValores(),
+        data: this.service.getIngresosValores(idCliente),
         fill: false,
         borderColor: 'rgb(34, 190, 3)',
         tension: 0.1
