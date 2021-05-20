@@ -1,3 +1,4 @@
+import { CuentasService } from './../../Servicios/cuentas.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
@@ -13,10 +14,12 @@ export class TransaccionesComponent implements OnInit {
 
   transacciones: Transaccion[] = [];
   total: number = 0;
+  cuenta:string = '';
   constructor(
       private route: ActivatedRoute,
       private router: Router,
-      private service: TransaccionesService
+      private service: TransaccionesService,
+      private cuentaService : CuentasService
     ) { }
 
   ngOnInit(): void {
@@ -24,6 +27,8 @@ export class TransaccionesComponent implements OnInit {
       const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
       this.transacciones = this.service.getTransacciones(id,idCliente);
       this.total = this.service.getTotal(id,idCliente);
+      this.cuenta = this.cuentaService.getNombreCuenta(id);
+      console.log(this.cuenta);
   }
 
   getTipo(estado:boolean):string{

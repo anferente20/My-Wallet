@@ -1,3 +1,9 @@
+<div class="text-center">
+  <h1>
+    {{cuenta}}
+  </h1>
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -10,19 +16,18 @@
   </thead>
   <tbody>
     <tr *ngFor="let transaccion of transacciones">
-      <th scope="row">{{transaccion.id}}</th>
-      <td>{{transaccion.fecha}}</td>
-      <td>{{transaccion.descripcion}}</td>
-      <td>{{getTipo(transaccion.tipo)}}</td>
-      <td>{{transaccion.monto}}</td>
+      <th scope="row">{{ transaccion.id }}</th>
+      <td>{{ transaccion.fecha }}</td>
+      <td>{{ transaccion.descripcion }}</td>
+      <td>{{ getTipo(transaccion.tipo) }}</td>
+      <td>{{ transaccion.monto }}</td>
     </tr>
-    <tr >
+    <tr>
       <th></th>
       <td></td>
       <td></td>
       <td><strong>Total</strong></td>
-      <td>{{total}}</td>
+      <td>{{ total }}</td>
     </tr>
-
   </tbody>
 </table>
