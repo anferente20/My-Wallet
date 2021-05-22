@@ -12,4 +12,14 @@ export class CuentasService {
   getCuentas(): Cuenta[]{
       return Cuentas;
   }
+
+  getNombreCuenta(idCuenta:number):string{
+    let nombreCuenta : string = '';
+    for(let cuenta of Cuentas){
+      if(cuenta.idCuenta = idCuenta){
+        nombreCuenta = cuenta.nombre;
+      }
+    }
+    return nombreCuenta;
+  }
 }
