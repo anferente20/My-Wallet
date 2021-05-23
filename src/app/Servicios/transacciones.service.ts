@@ -12,19 +12,14 @@ export class TransaccionesService {
 
   constructor(private http: HttpClient) { }
 
-  getTransacciones(idCuenta:Number, idCliente:Number):Observable<Transaccion[]>{
-      /*let cuentasFiltradas:Transaccion[] = [];
+  getTransacciones(idCuenta:Number, idCliente:Number):Transaccion[]{
+      let cuentasFiltradas:Transaccion[] = [];
       for (let transaccion of Transacciones){
         if(transaccion.idCuenta == idCuenta && transaccion.idCliente == idCliente){
             cuentasFiltradas.push(transaccion);
         }
-      }*/
-      var accountsUrl = 'http://localhost:3000/transactions';  // URL to web api
-      var id = Number(((document.getElementById("user") as HTMLInputElement).value));
-      /** GET Accounts from the server */
-      const url = `${accountsUrl}/${id}`;
-      return this.http.get<Transaccion[]>(url)
-      //return cuentasFiltradas;
+      }      
+      return cuentasFiltradas;
   }
 
   getTotal(idCuenta:Number, idCliente:Number):number{

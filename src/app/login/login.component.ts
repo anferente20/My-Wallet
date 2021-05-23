@@ -19,8 +19,10 @@ export class LoginComponent implements OnInit {
     telefono: 0,
     id: 0
   };
+  
 
-  constructor(private router: Router, private personaService: PersonaService, private app: AppComponent) { }
+  constructor(private router: Router, private personaService: PersonaService, private app: AppComponent) {     
+  }
 
   ngOnInit(): void {
   }
