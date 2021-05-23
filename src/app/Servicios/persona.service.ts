@@ -27,22 +27,10 @@ export class PersonaService {
   }
 
 
-  getPersona(correo: string, contrasena: string): Persona {    
-    let p: Persona = {
-      correo: '',
-      nombres: '',
-      contrasena: '',
-      apellidos: '',
-      telefono: 0,
-      id: 0
-    }
-    for (let persona of Personas) {
-      if (persona.correo == correo && persona.contrasena == contrasena) {
-        p = persona;
-      }
-    }
-    return p;    
-  }
+  /** getPersona(correo: string, contrasena: string): Observable<Persona> {
+    let url = this.usersUrl+'/'+correo+'/'+contrasena;    
+    return this.http.get<Persona>(this.usersUrl);   
+  }**/
 
   getPersonaByID(id: number): Persona {
     let p: Persona = {

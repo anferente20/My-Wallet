@@ -1,8 +1,8 @@
 export interface Persona {
-    correo:string;
-    nombres:string;
-    contrasena:string;
     apellidos:string;
-    telefono:number;
+    contrasena:string;
+    correo:string;
     id:number;
+    nombres:string; 
+    telefono:number;
 }

@@ -11,15 +11,8 @@ import { AppComponent } from '../app.component';
 })
 export class LoginComponent implements OnInit {
 
-  persona: Persona = {
-    correo: '',
-    nombres: '',
-    contrasena: '',
-    apellidos: '',
-    telefono: 0,
-    id: 0
-  };
-   personas: Persona[] = [];
+  persona: any;
+  personas: Persona[] = [];
 
   constructor(private router: Router, private personaService: PersonaService, private app: AppComponent) {     
   }
@@ -32,8 +25,8 @@ export class LoginComponent implements OnInit {
     var correo = ((document.getElementById("Correo") as HTMLInputElement).value);
     var contrasena = ((document.getElementById("Contrasena") as HTMLInputElement).value);
 
-    if (this.personaService.existPersona(correo,contrasena)) {
-      this.persona = this.personaService.getPersona(correo, contrasena);
+    if (this.existPersona (correo, contrasena)) {
+
       this.personaService.setID(this.persona.id);
       this.router.navigate(['/cuentas']);
       this.app.getID();
@@ -47,5 +40,16 @@ export class LoginComponent implements OnInit {
   }
   cancelar() {
     this.router.navigate(['/login']);
+  }
+
+  existPersona(correo:string, contrasena: string):boolean{
+    let exists : boolean = false;
+    for(let persona of this.personas){
+      if(persona.correo == correo && persona.contrasena == contrasena ){
+        exists = true;
+        this.persona = persona;
+      }
+    }
+    return exists
   }
 }
