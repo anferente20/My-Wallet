@@ -19,4 +19,14 @@ export class CuentasService {
     const url = `${accountsUrl}/${id}`;
     return this.http.get<Cuenta[]>(url)
   }
+
+  getNombreCuenta(idCuenta:number):string{
+    let nombreCuenta : string = '';
+    for(let cuenta of Cuentas){
+      if(cuenta.idCuenta = idCuenta){
+        nombreCuenta = cuenta.nombre;
+      }
+    }
+    return nombreCuenta;
+  }
 }
