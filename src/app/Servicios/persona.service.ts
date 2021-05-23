@@ -22,11 +22,8 @@ export class PersonaService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  getPersonas(): Persona[] {    
-    return Personas;        
-    //return this.http.get<Persona[]>(this.usersUrl);
-
-    //https://howtodoinjava.com/angular/rxjs-observable-httpclient/
+  getPersonas():Observable<Persona[]> {    
+    return this.http.get<Persona[]>(this.usersUrl);
   }
 
 

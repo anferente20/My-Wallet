@@ -12,14 +12,12 @@ export class CuentasService {
 
   constructor(private http: HttpClient) { }
 
-  getCuentas(): Cuenta[]{
-    /*var accountsUrl = 'http://localhost:3000/accounts';  // URL to web api
+  getCuentas(): Observable<Cuenta[]>{
+    var accountsUrl = 'http://localhost:3000/accounts';  // URL to web api
     var id = Number(((document.getElementById("user") as HTMLInputElement).value));
     
     const url = `${accountsUrl}/${id}`;
     return this.http.get<Cuenta[]>(url);
-    */
-   return Cuentas;
   }
 
   getNombreCuenta(idCuenta:number):string{

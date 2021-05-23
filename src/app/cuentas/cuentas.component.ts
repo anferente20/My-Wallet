@@ -10,11 +10,12 @@ import { Observable, of } from 'rxjs';
 })
 export class CuentasComponent implements OnInit {
 
-  cuentas: any;
+  cuentas: Cuenta[] = [];
   constructor(private cuentasService: CuentasService) { }
 
   ngOnInit(): void {    
-      this.cuentas = this.cuentasService.getCuentas();
+    this.cuentasService.getCuentas().subscribe(cuentas => (this.cuentas = cuentas));
+    console.log(this.cuentas);
   }
 
 }

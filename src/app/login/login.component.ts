@@ -19,12 +19,13 @@ export class LoginComponent implements OnInit {
     telefono: 0,
     id: 0
   };
-  
+   personas: Persona[] = [];
 
   constructor(private router: Router, private personaService: PersonaService, private app: AppComponent) {     
   }
 
   ngOnInit(): void {
+    this.personaService.getPersonas().subscribe(personas =>(this.personas = personas));
   }
 
   acceder() {
