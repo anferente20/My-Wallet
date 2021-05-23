@@ -11,7 +11,7 @@ import { TransaccionesService } from '../../Servicios/transacciones.service';
 })
 export class TransaccionesComponent implements OnInit {
 
-  transacciones: Transaccion[] = [];
+  transacciones: any;
   total: number = 0;
   constructor(
       private route: ActivatedRoute,

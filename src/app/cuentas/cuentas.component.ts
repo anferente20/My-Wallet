@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CuentasService } from '../Servicios/cuentas.service';
 import { Cuenta } from '../Interfaces/cuenta';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-cuentas',
@@ -9,10 +10,10 @@ import { Cuenta } from '../Interfaces/cuenta';
 })
 export class CuentasComponent implements OnInit {
 
-  cuentas: Cuenta[] = [];
+  cuentas: any;
   constructor(private cuentasService: CuentasService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
       this.cuentas = this.cuentasService.getCuentas();
   }
 

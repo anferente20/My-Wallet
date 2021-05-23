@@ -2,19 +2,25 @@ import { Injectable } from '@angular/core';
 import { Persona } from '../Interfaces/persona';
 import { Personas } from '../Listas/lista-personas';
 import { Observable, of } from 'rxjs';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
 
-  constructor() { }
-
+  constructor(
+    private http: HttpClient
+  ) { }
+  
   private idRegistrado: number = 0;
-
-  getPersonas(): Persona[]{
-      return Personas;
+  private usersUrl = 'http://localhost:3000/users';  // URL to web api
+  private personas: any;
+  getPersonas(): Observable<Persona[]>{
+      /** GET Users from the server */      
+      this.personas = this.http.get<Persona[]>(this.usersUrl);
+      console.log(this.personas);
+      return this.personas;
   }
 
   getPersona(correo:string, contrasena:string):Persona{
@@ -26,7 +32,7 @@ export class PersonaService {
         telefono: 0,
         id: 0
       };
-     for (let persona of Personas){
+     for (let persona of this.personas){
         if(persona.correo == correo && persona.contrasena == contrasena){
             p = persona;
         }

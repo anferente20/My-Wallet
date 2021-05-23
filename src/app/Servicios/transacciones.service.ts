@@ -2,22 +2,29 @@ import { Injectable } from '@angular/core';
 import { Transaccion } from '../Interfaces/transaccion';
 import { Transacciones } from '../Listas/lista-transacciones';
 
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransaccionesService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getTransacciones(idCuenta:Number, idCliente:Number):Transaccion[]{
-      let cuentasFiltradas:Transaccion[] = [];
+  getTransacciones(idCuenta:Number, idCliente:Number):Observable<Transaccion[]>{
+      /*let cuentasFiltradas:Transaccion[] = [];
       for (let transaccion of Transacciones){
         if(transaccion.idCuenta == idCuenta && transaccion.idCliente == idCliente){
             cuentasFiltradas.push(transaccion);
         }
-      } 
-      return cuentasFiltradas;
+      }*/
+      var accountsUrl = 'http://localhost:3000/transactions';  // URL to web api
+      var id = Number(((document.getElementById("user") as HTMLInputElement).value));
+      /** GET Accounts from the server */
+      const url = `${accountsUrl}/${id}`;
+      return this.http.get<Transaccion[]>(url)
+      //return cuentasFiltradas;
   }
 
   getTotal(idCuenta:Number, idCliente:Number):number{
