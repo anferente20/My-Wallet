@@ -6,7 +6,7 @@ import { TransaccionesComponent } from './transacciones/transacciones.component'
 
 @NgModule({
   declarations: [
-    TransaccionesComponent
+    TransaccionesComponent,
   ],
   imports: [
     CommonModule,

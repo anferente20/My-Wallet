@@ -6,23 +6,17 @@
                   <tr>
                     <td>Nombre</td>
                     <td>
-                        <input type="text" name="Nombre"/>
+                        <input type="text" name="Nombre" id="nombre"/>
                     </td>
                   </tr>
                   <tr>
-                    <td>Saldo Inicial</td>
+                    <td>Descripción</td>
                     <td>
-                        <input type="text" name="Saldo Inicial"/>
+                        <input type="text" name="Descripcion" id="descripcion"/>
                     </td>
                   </tr>
                   <tr>
-                    <td>Tope Mínimo</td>
-                    <td>
-                        <input type="text" name="Tope"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="#" class="btn btn-success">Agregar</a></td>                    
+                    <td><a (click)="agregarCuenta()" routerlink="/cuentas" class="btn btn-success">Agregar</a></td>                    
                   </tr>
                 </tbody>
               </table>            

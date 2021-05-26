@@ -12,42 +12,13 @@ export class TransaccionesService {
 
   constructor(private http: HttpClient) { }
 
-  /*getTransacciones(idCuenta:Number, idCliente:Number):Transaccion[]{
-      let cuentasFiltradas:Transaccion[] = [];
-      for (let transaccion of Transacciones){
-        if(transaccion.idCuenta == idCuenta && transaccion.idCliente == idCliente){
-            cuentasFiltradas.push(transaccion);
-        }
-      }      
-      return cuentasFiltradas;
-  }*/
-
   getTransacciones(idCuenta:Number):Observable<Transaccion[]>{
-    console.log("2")
     var transactionsUrl = 'http://localhost:3000/transactions';  // URL to web api    
     const url = `${transactionsUrl}/${idCuenta}`;
     return this.http.get<Transaccion[]>(url);
-}
+  }
 
-  /*getTotal(idCuenta:Number, idCliente:Number):number{
-    
-      let total: number = 0;
-      for(let transaccion of Transacciones ){
-          if(transaccion.idCuenta == idCuenta && transaccion.idCliente == idCliente){
-            if(transaccion.tipo == true){
-              total = total+transaccion.monto;
-              }else{
-                  total = total-transaccion.monto;
-              }
-          } 
-      }
-      return total;
-      
-    
-  }*/
   getTotal(transacciones:Transaccion[]):number{    
-    console.log("4_getTotal de Transacciones-service: ");
-    console.log(transacciones);
     let total: number = 0;
     for(let transaccion of transacciones ){        
         if(transaccion.tipo == true){
@@ -56,7 +27,6 @@ export class TransaccionesService {
               total = total-transaccion.monto;
           }        
     }
-    console.log("Total: "+total);
     return total;      
 }
 
