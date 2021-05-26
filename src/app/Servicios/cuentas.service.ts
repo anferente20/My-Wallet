@@ -22,7 +22,7 @@ export class CuentasService {
   getNombreCuenta(idCuenta:number):string{
     let nombreCuenta : string = '';
     for(let cuenta of Cuentas){
-      if(cuenta.idCuenta = idCuenta){
+      if(cuenta.id = idCuenta){
         nombreCuenta = cuenta.nombre;
       }
     }

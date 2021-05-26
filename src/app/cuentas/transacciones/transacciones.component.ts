@@ -25,12 +25,19 @@ export class TransaccionesComponent implements OnInit {
   ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
       const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
-      this.transacciones = this.service.getTransacciones(id,idCliente);
-      this.total = this.service.getTotal(id,idCliente);
+      //this.transacciones = this.service.getTransacciones(id,idCliente);
+      //this.transacciones = this.service.getTransacciones(id);
+      console.log("1_ngOnInit de TransaccionesComponent");
+      this.service.getTransacciones(id).subscribe(transacciones => (this.transacciones = transacciones));      
+      //this.total = this.service.getTotal(id,idCliente);
+      this.total = this.getTotal();
       this.cuenta = this.cuentaService.getNombreCuenta(id);
-      console.log(this.cuenta);
+      console.log(this.cuenta);            
   }
-
+  getTotal():number{
+    console.log("3_getTotal de Transacciones-component: ");    
+    return this.service.getTotal(this.transacciones);
+  }
   getTipo(estado:boolean):string{
     if(estado == true){
       return 'Ingreso';
