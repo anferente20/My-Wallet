@@ -67,4 +67,13 @@ export class PersonaService {
     const id = of(this.idRegistrado)
     return id;
   }
+
+  editPersona(persona:Persona){
+    let url = 'http://localhost:3000/editUser'; 
+    this.http.post(url,persona).subscribe((response)=>{
+      console.log('response from post data is ', response);
+    },(error)=>{
+      console.log('error during post is ', error)
+    });
+  }
 }

@@ -28,6 +28,11 @@ export class PerfilComponent implements OnInit {
   }
   
   actualizar() {
+    this.persona.nombres= (document.getElementById("newNombres") as HTMLInputElement).value; 
+    this.persona.apellidos = (document.getElementById("newApellidos") as HTMLInputElement).value; 
+    this.persona.telefono = Number((document.getElementById("newTelefono") as HTMLInputElement).value); 
+
+    this.personaService.editPersona(this.persona);
     this.router.navigate(['/cuentas']);
   }
 
