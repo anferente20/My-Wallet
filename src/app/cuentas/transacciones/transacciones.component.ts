@@ -23,7 +23,6 @@ export class TransaccionesComponent implements OnInit {
 
   ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
-      const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
       this.service.getTransacciones(id).subscribe(transacciones => (this.transacciones = transacciones));      
       this.cuenta = this.cuentaService.getNombreCuenta(id);
       console.log(this.cuenta);            
@@ -35,6 +34,7 @@ export class TransaccionesComponent implements OnInit {
       return this.service.getTotal(this.transacciones);
     }
   }
+  
   getTipo(estado:boolean):string{
     if(estado == true){
       return 'Ingreso';

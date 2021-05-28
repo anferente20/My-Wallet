@@ -12,19 +12,19 @@ import { PersonaService } from '../Servicios/persona.service';
 export class PerfilComponent implements OnInit {
 
   persona: Persona = {
-    correo:'', 
-    nombres:'', 
-    contrasena: '',
+    id:0, 
+    nombres:'',
     apellidos:'', 
     telefono: 0, 
-    id:0
+    contrasena: '', 
+    correo:''
   };
 
   constructor(private personaService: PersonaService, private router: Router) { }
 
   ngOnInit(): void {
     let id = Number(((document.getElementById("user") as HTMLInputElement).value));
-    this.persona = this.personaService.getPersonaByID(id);
+    this.personaService.getPersonaByID(id).subscribe(person => (this.persona = person[0]));
   }
   
   actualizar() {

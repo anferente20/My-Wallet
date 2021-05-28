@@ -36,6 +36,23 @@ export class LoginComponent implements OnInit {
 
   }
   registrarse() {
+    var correo = ((document.getElementById("addCorreo") as HTMLInputElement).value);
+    var contrasena = ((document.getElementById("addContrasena") as HTMLInputElement).value);
+    var confirmContrasena = ((document.getElementById("ContrasenaConfirmada") as HTMLInputElement).value);
+    var nombres = ((document.getElementById("addNombres") as HTMLInputElement).value);
+    var apellidos = ((document.getElementById("addApellidos") as HTMLInputElement).value);
+    var telefono = ((document.getElementById("addTelefono") as HTMLInputElement).value);
+    
+    if(contrasena === confirmContrasena){
+      let person = {
+        'correo' : correo,
+        'contrasena' : contrasena,
+        'nombres' : nombres,
+        'apellidos' : apellidos,
+        'telefono' : Number(telefono)
+      }
+      this.personaService.addPersona(person);
+    }
     this.router.navigate(['/login']);
   }
   cancelar() {

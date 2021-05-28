@@ -32,21 +32,10 @@ export class PersonaService {
     return this.http.get<Persona>(this.usersUrl);   
   }**/
 
-  getPersonaByID(id: number): Persona {
-    let p: Persona = {
-      correo: '',
-      nombres: '',
-      contrasena: '',
-      apellidos: '',
-      telefono: 0,
-      id: 0
-    };
-    for (let persona of Personas) {
-      if (persona.id == id) {
-        p = persona;
-      }
-    }
-    return p;
+  getPersonaByID(id: number): Observable<Persona[]> {
+    var usersUrl = 'http://localhost:3000/users';  // URL to web api  
+    const url = `${usersUrl}/${id}`;  
+    return this.http.get<Persona[]>(url);
   }
 
   existPersona(correo: string, contrasena: string): boolean {
@@ -66,6 +55,15 @@ export class PersonaService {
   getID(): Observable<number> {
     const id = of(this.idRegistrado)
     return id;
+  }
+
+  addPersona(persona:any){
+    let url = 'http://localhost:3000/addUser'; 
+    this.http.post(url,persona).subscribe((response)=>{
+      console.log('response from post data is ', response);
+    },(error)=>{
+      console.log('error during post is ', error)
+    });
   }
 
   editPersona(persona:Persona){

@@ -11,6 +11,7 @@
       <th scope="col">Fecha</th>
       <th scope="col">Descripción</th>
       <th scope="col">Tipo</th>
+      <th scope="col">Destinatario</th>
       <th scope="col">Monto</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
       <td>{{ transaccion.fecha }}</td>
       <td>{{ transaccion.descripcion }}</td>
       <td>{{ getTipo(transaccion.tipo) }}</td>
+      <td>{{ transaccion.destinatario }}</td>
       <td>{{ transaccion.monto }}</td>
     </tr>
     <tr>
