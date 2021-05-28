@@ -50,14 +50,10 @@ export class TransaccionesService {
     return fechas;
   }
 
-  getIngresosFechas(idCliente:Number): string[]{
-    let fechas: string[] = [];
-    for(let transaccion of Transacciones){
-      if(transaccion.tipo == true && transaccion.idCliente == idCliente){
-        fechas.push(transaccion.fecha);
-      }
-    }
-    return fechas;
+  getIngresosFechas(idCliente:Number): Observable<string[]>{
+    var transactionsUrl = 'http://localhost:3000/income';  // URL to web api    
+    const url = `${transactionsUrl}/${idCliente}`;
+    return this.http.get<string[]>(url);
   }
 
   getIngresosValores(idCliente:Number): number[]{

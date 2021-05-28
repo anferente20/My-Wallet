@@ -4,14 +4,6 @@
             <table>
                 <tbody>
                   <tr>
-                    <td>ID</td>
-                    <td>
-                        <form>
-                        <input type="number" min="1" max="100">
-                        </form>
-                    </td>
-                  </tr>
-                  <tr>
                     <td>Descripción</td>
                     <td>
                         <input type="text" name="descripcion"id="Descripcion"/>
@@ -20,7 +12,10 @@
                   <tr>
                     <td>Cuenta</td>
                     <td>
-                        <input type="text" name="descripcion"id="Descripcion"/>
+                      <select class="form-select" aria-label="Disabled select example" >
+                        <option selected>Escoge una cuenta</option>
+                        <option [value]="item.nombre" *ngFor="let item of cuentas">{{item.nombre}}</option>
+                      </select>
                     </td>
                   </tr>
                   <tr>
@@ -43,8 +38,6 @@
                 </tbody>
               </table>
           </div>
-           <div class="col">
-              <canvas id="egresosChart"></canvas>
-          </div>   
+            
     </div>
 </div>

@@ -23,6 +23,14 @@ export class CuentasService {
     return this.http.get<Cuenta[]>(url);
   }
 
+  getCuentasName(): Observable<string[]>{
+    var accountsUrl = 'http://localhost:3000/accountsName';  // URL to web api
+    var id = Number(((document.getElementById("user") as HTMLInputElement).value));    
+    const url = `${accountsUrl}/${id}`;
+    return this.http.get<string[]>(url);
+  }
+
+
   getNombreCuenta(idCuenta:number):string{
     let nombreCuenta : string = '';
     for(let cuenta of Cuentas){

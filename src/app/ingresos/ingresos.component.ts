@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TransaccionesService } from '../Servicios/transacciones.service';
+import { CuentasService } from '../Servicios/cuentas.service';
+
 import {
   Chart,
   ArcElement,
@@ -57,37 +59,18 @@ Chart.register(
   styleUrls: ['./ingresos.component.css']
 })
 export class IngresosComponent implements OnInit {
-
+  idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));
   constructor(
-    private service: TransaccionesService
-    ) { }
-
+    private service: TransaccionesService,
+    private cuenta: CuentasService
+    ) { 
+    }
+  
+  cuentas:any = [];
+  
+  
   ngOnInit(): void { 
-    const idCliente = Number(((document.getElementById("user") as HTMLInputElement).value));  
-    const labels = this.service.getIngresosFechas(idCliente);
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'Ingresos',
-        data: this.service.getIngresosValores(idCliente),
-        fill: false,
-        borderColor: 'rgb(34, 190, 3)',
-        tension: 0.1
-      }
-      ]
-    };    
-    var myChart = new Chart("ingresosChart", {
-        type: 'line',
-        data: data,
-        options: {
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    });
+    this.cuenta.getCuentasName().subscribe(cuentas =>(this.cuentas = cuentas));
   }
 
 }
