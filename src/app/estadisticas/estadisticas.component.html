@@ -1,6 +1,12 @@
-<div id="divChart">
-    <canvas id="firstChart"></canvas>
+<div class="btn-group" role="group" id="botones" aria-label="Button group with nested dropdown">
+    <select class="form-select" class="btn btn-outline-success" aria-label="Disabled select example" id="grafica">
+        <option selected>Selecciona una gráfica</option>
+        <option value="1">Grafica de dona</option>
+        <option value="2">Grafica de pie</option>
+        <option value="3">Grafica de barras</option>
+      </select>
+    <input type="button" (click)="graficar()" class="btn btn-outline-success" value="Graficar" />
 </div>
 <div id="divChart">
-    <canvas id="secondChart"></canvas>
+    <canvas id="firstChart"></canvas>
 </div>

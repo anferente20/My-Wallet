@@ -41,7 +41,7 @@ export class TransaccionesComponent implements OnInit {
       return 'Egreso';
     }
   }
-
+  
   eliminarCuenta(){
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.cuentaService.deleteCuenta(id);
