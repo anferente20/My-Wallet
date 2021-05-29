@@ -29,16 +29,11 @@ export class CuentasService {
     const url = `${accountsUrl}/${id}`;
     return this.http.get<string[]>(url);
   }
-
-
-  getNombreCuenta(idCuenta:number):string{
-    let nombreCuenta : string = '';
-    for(let cuenta of Cuentas){
-      if(cuenta.id = idCuenta){
-        nombreCuenta = cuenta.nombre;
-      }
-    }
-    return nombreCuenta;
+  getSaldo(idCuenta:number):Observable<number[]>{
+    var accountsUrl = 'http://localhost:3000/accountAmount';  // URL to web api
+    var id = Number(((document.getElementById("user") as HTMLInputElement).value));    
+    const url = `${accountsUrl}/${id}`;
+    return this.http.get<number[]>(url);
   }
 
   addCuenta(nombre:string, descripcion:string,idCliente:number){

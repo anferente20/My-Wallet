@@ -24,7 +24,6 @@ export class TransaccionesComponent implements OnInit {
   ngOnInit(): void {
       const id = Number(this.route.snapshot.paramMap.get('id'));
       this.service.getTransacciones(id).subscribe(transacciones => (this.transacciones = transacciones));      
-      this.cuenta = this.cuentaService.getNombreCuenta(id);
       console.log(this.cuenta);            
   }
   getTotal():number{

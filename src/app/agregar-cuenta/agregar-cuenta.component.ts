@@ -18,7 +18,6 @@ export class AgregarCuentaComponent implements OnInit {
     var id = Number(((document.getElementById("user") as HTMLInputElement).value)); 
     var nombre:string = (document.getElementById("nombre") as HTMLInputElement).value; 
     var descripcion:string = (document.getElementById("descripcion") as HTMLInputElement).value; 
-
     this.service.addCuenta(nombre,descripcion,id);
     this.router.navigate(['/cuentas']);
   }
