@@ -69,4 +69,23 @@ export class EgresosComponent implements OnInit {
     this.cuenta.getCuentasName().subscribe(cuentas =>(this.cuentas = cuentas));
   }
 
+  agregarEgreso(){
+    let descripcion = ((document.getElementById("descripcion") as HTMLInputElement).value);
+    let valor = Number(((document.getElementById("monto") as HTMLInputElement).value));
+    let cuenta = Number((document.getElementById("cuenta") as HTMLInputElement).value);
+    let fecha = ((document.getElementById("start") as HTMLInputElement).value);
+    let destinatario = ((document.getElementById("destinatario") as HTMLInputElement).value);
+
+    let ingreso ={
+      "fecha":fecha,
+      "descripcion": descripcion,
+      "tipo": false,
+      "idcuenta":cuenta,
+      "monto":valor,
+      "destinatario": destinatario
+    }
+
+    console.log(this.service.addTransaction(ingreso));
+  }
+
 }

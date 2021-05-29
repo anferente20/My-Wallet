@@ -6,22 +6,22 @@
                   <tr>
                     <td>Descripción</td>
                     <td>
-                        <input type="text" name="descripcion"id="Descripcion"/>
+                        <input type="text" name="descripcion"id="descripcion"/>
                     </td>
                   </tr>
                   <tr>
                     <td>Cuenta</td>
                     <td>
-                      <select class="form-select" aria-label="Disabled select example" >
+                      <select class="form-select" aria-label="Disabled select example" id="cuenta">
                         <option selected>Escoge una cuenta</option>
-                        <option [value]="item.nombre" *ngFor="let item of cuentas">{{item.nombre}}</option>
+                        <option [value]="item.id" *ngFor="let item of cuentas">{{item.nombre}}</option>
                       </select>
                     </td>
                   </tr>
                   <tr>
                     <td>Valor</td>
                     <td>
-                        <input type="text" name="valor"id="Valor"/>
+                        <input type="number" name="valor"id="monto"/>
                     </td>
                   </tr>
                   <tr>
@@ -33,7 +33,13 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#" class="btn btn-success">Registrar</a></td>                    
+                    <td>Destinatario</td>
+                    <td>
+                        <input type="text" name="destinatario"id="destinatario"/>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a routerLink="/cuentas" (click)="agregarIngreso()" class="btn btn-success">Registrar</a></td>                    
                   </tr>
                 </tbody>
               </table>

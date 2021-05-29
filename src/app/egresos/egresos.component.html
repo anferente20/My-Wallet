@@ -1,43 +1,49 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col">
-            <table>
-                <tbody>
-                  <tr>
-                    <td>Descripción</td>
-                    <td>
-                        <input type="text" name="descripcion"id="Descripcion"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cuenta</td>
-                    <td>
-                      <select class="form-select" aria-label="Disabled select example" >
-                        <option selected>Escoge una cuenta</option>
-                        <option [value]="item.nombre" *ngFor="let item of cuentas">{{item.nombre}}</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Valor</td>
-                    <td>
-                        <input type="text" name="valor"id="Valor"/>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Fecha</td>
-                    <td>
-                        <input type="date" id="start" name="trip-start"
-                             value="today"
-                            min="2021-01-01" max="2022-12-31">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="#" class="btn btn-success">Registrar</a></td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
-            
-    </div>
+  <div class="row">
+      <div class="col">
+          <table>
+              <tbody>
+                <tr>
+                  <td>Descripción</td>
+                  <td>
+                      <input type="text" name="descripcion"id="descripcion"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cuenta</td>
+                  <td>
+                    <select class="form-select" aria-label="Disabled select example" id="cuenta">
+                      <option selected>Escoge una cuenta</option>
+                      <option [value]="item.id" *ngFor="let item of cuentas">{{item.nombre}}</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Valor</td>
+                  <td>
+                      <input type="number" name="valor"id="monto"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Fecha</td>
+                  <td>
+                      <input type="date" id="start" name="trip-start"
+                           value="today"
+                          min="2021-01-01" max="2021-12-31">
+                  </td>
+                </tr>
+                <tr>
+                  <td>Destinatario</td>
+                  <td>
+                      <input type="text" name="destinatario"id="destinatario"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td><a routerLink="/cuentas" (click)="agregarEgreso()" class="btn btn-success">Registrar</a></td>                    
+                </tr>
+              </tbody>
+            </table>
+        </div>  
+                 
+  </div>
 </div>

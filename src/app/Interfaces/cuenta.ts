@@ -9,5 +9,6 @@ export interface Cuenta{
     id: number,
     nombre: string,
     descripcion: string,    
-    saldo: number
+    ingresos: number,
+    egresos: number
 }
