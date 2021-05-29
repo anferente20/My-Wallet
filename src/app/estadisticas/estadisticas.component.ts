@@ -164,13 +164,14 @@ export class EstadisticasComponent implements OnInit {
             data: [totalingresos, totalEgresos],
             fill: false,
             backgroundColor: [
-              'rgb(34, 190, 3)',
-              'rgb(234, 53, 5)'
+              'rgb(34, 190, 3, 0.2)',
+              'rgb(234, 53, 5, 0.2)'
             ],
             borderColor: [
-              'rgb(34, 190, 3)',
-              'rgb(234, 53, 5)'
+              'rgb(34, 190, 3,1)',
+              'rgb(234, 53, 5,1)'
             ],
+            borderWidth:1,
             hoverOffset: 4,
             tension: 0.1
           }]
