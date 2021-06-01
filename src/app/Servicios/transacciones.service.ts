@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Transaccion } from '../Interfaces/transaccion';
-import { Transacciones } from '../Listas/lista-transacciones';
 
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -50,6 +49,18 @@ export class TransaccionesService {
   getEgresos(idCliente:Number): Observable<string[]>{
     var transactionsUrl = 'http://localhost:3000/outcome';  // URL to web api    
     const url = `${transactionsUrl}/${idCliente}`;
+    return this.http.get<string[]>(url);
+  }
+
+  getIngresosCuenta(idCueta:Number): Observable<string[]>{
+    var transactionsUrl = 'http://localhost:3000/accountIncome';  // URL to web api    
+    const url = `${transactionsUrl}/${idCueta}`;
+    return this.http.get<string[]>(url);
+  }
+
+  getEgresosCuenta(idCueta:Number): Observable<string[]>{
+    var transactionsUrl = 'http://localhost:3000/accountOutcome';  // URL to web api    
+    const url = `${transactionsUrl}/${idCueta}`;
     return this.http.get<string[]>(url);
   }
 }

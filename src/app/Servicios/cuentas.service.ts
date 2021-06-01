@@ -23,6 +23,12 @@ export class CuentasService {
     return this.http.get<Cuenta[]>(url);
   }
 
+  getNombreCuenta(id:number): Observable<string[]>{
+    var accountsUrl = 'http://localhost:3000/accountName';  // URL to web api
+    const url = `${accountsUrl}/${id}`;
+    return this.http.get<string[]>(url);
+  }
+
   getCuentasName(): Observable<string[]>{
     var accountsUrl = 'http://localhost:3000/accountsName';  // URL to web api
     var id = Number(((document.getElementById("user") as HTMLInputElement).value));    
@@ -60,5 +66,6 @@ export class CuentasService {
       console.log('error during post is ', error)
     });
   }
+  
 }
 
